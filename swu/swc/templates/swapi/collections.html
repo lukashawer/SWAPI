@@ -3,6 +3,12 @@
 {% block content %}
       
  <h1 class="text-center font-weight-bold">SWAPI</h1>
-{{df_html|safe}}
+ <a class="btn btn-info btn-lg" href="{% url 'swc:refres_collection' %}" role="button">Update Collection</a>
+
+<div class="list-group">
+{% for doc in docs %}
+    <a href="{% url 'swc:collection' doc.id 10 %}" class="list-group-item list-group-item-action">{{doc.date|date:"r"}}</a>
+{% endfor %}
+</div>
 
 {% endblock content%}
