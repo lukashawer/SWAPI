@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      
+ <h1 class="text-center font-weight-bold">SWAPI</h1>
+ <a class="btn btn-info btn-lg" href="{% url 'swc:collections' %}" role="button">All collections</a>
+ <div class="btn-group" role="group" aria-label="Basic example">
+  {% for g_str in groupings%}
+    <a class="btn {% if g_str in curent_q %} btn-secondary {% else %} btn-info {% endif %} btn-lg" 
+        href="{% url 'swc:grouping_stat' collection.id g_str curent_q%}" 
+        role="button" 
+        type="button" >
+            {{g_str}}
+    </a>
+  {% endfor %}
+</div>
+{{df_html|safe}}
+
+{% endblock content%}

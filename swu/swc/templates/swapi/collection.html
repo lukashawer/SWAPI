@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+      
+ <h1 class="text-center font-weight-bold">SWAPI</h1>
+ <a class="btn btn-info btn-lg" href="{% url 'swc:collections' %}" role="button">All collections</a>
+ <a class="btn btn-info btn-lg" href="{% url 'swc:grouping_stat' collection.id 'homeworld' 'gender'%}" role="button" type="button" >Grouping Report</a>
+{{df_html|safe}}
+<a class="btn btn-info btn-lg" href="{% url 'swc:collection' collection.id next_v %}" role="button">Load more</a>
+{% endblock content%}
